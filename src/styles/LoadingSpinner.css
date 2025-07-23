@@ -1,0 +1,288 @@
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.loading-spinner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.spinner-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: spinner-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: rgba(255, 255, 255, 0.8) transparent transparent transparent;
+}
+
+.spinner-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.spinner-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.spinner-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+.loading-icon {
+  position: absolute;
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.loading-text {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes spinner-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Alternative loading spinner styles */
+.loading-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.loading-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: loadingDots 1.4s ease-in-out infinite both;
+}
+
+.loading-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loadingDots {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Weather-themed loading animation */
+.weather-loading {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  opacity: 0.8;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+}
+
+.cloud1 {
+  width: 50px;
+  height: 20px;
+  top: 20px;
+  left: 10px;
+  animation: float1 3s ease-in-out infinite;
+}
+
+.cloud1::before {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: 5px;
+}
+
+.cloud1::after {
+  width: 30px;
+  height: 20px;
+  top: -5px;
+  right: 5px;
+}
+
+.cloud2 {
+  width: 40px;
+  height: 15px;
+  top: 40px;
+  right: 10px;
+  animation: float2 2.5s ease-in-out infinite reverse;
+}
+
+.cloud2::before {
+  width: 15px;
+  height: 15px;
+  top: -8px;
+  left: 3px;
+}
+
+.cloud2::after {
+  width: 25px;
+  height: 15px;
+  top: -3px;
+  right: 3px;
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .loading-container {
+    padding: 2rem;
+  }
+
+  .spinner-ring {
+    width: 60px;
+    height: 60px;
+  }
+
+  .spinner-ring div {
+    width: 48px;
+    height: 48px;
+    margin: 6px;
+    border-width: 3px;
+  }
+
+  .loading-icon {
+    font-size: 1.5rem;
+  }
+
+  .loading-text {
+    font-size: 1rem;
+  }
+
+  .weather-loading {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-container {
+    padding: 1.5rem;
+  }
+
+  .spinner-ring {
+    width: 50px;
+    height: 50px;
+  }
+
+  .spinner-ring div {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-width: 2px;
+  }
+
+  .loading-icon {
+    font-size: 1.25rem;
+  }
+
+  .loading-text {
+    font-size: 0.9rem;
+  }
+}

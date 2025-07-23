@@ -1,3 +1,16 @@
+#WEATHER APP
+
+Weather app created using react js and OpenWeather API Integration
+Search any city name and it provides :
+  ---Humidity
+  ---Speed
+  ---Pressure
+  ---Visibility
+  ---Sunrise
+  ---Sunset
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
